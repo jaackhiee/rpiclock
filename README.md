@@ -12,4 +12,4 @@ Kiosk mode clock/assistant supposed to be running on a Raspberry Pi with a 7" to
 # configuration
 The *start_clock_kiosk.desktop* shall exist in */etc/xdg/autostart/* on the Raspberry Pi. And the *start_clock_kiosk.sh* shall be placed in *~/*.
 
-![Sample of departures](https://raw.githubusercontent.com/jaackhiee/rpiclock/master/rpiclock-sample-jpg)
+![Sample of departures](https://raw.githubusercontent.com/jaackhiee/rpiclock/master/rpiclock-sample.jpg)
