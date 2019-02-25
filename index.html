@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Made with <3</title>
+
+
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/assistant.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+
+
+    <link rel="stylesheet" href="css/owfont-regular.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+  <body>
+
+    <!-- Fullscreen blurred background -->
+    <div id="bg"></div>
+
+    <!-- Content goes in this flexible container -->
+    <div class="flex-container" id="standard-view">
+
+      <div class="flex-row">
+        <div class="flex-column center">
+          <div id="time"></div>
+        </div>
+      </div>
+      
+      <div class="flex-row">
+        <div class="flex-column">
+          <div></div>
+        </div>
+        <div class="flex-column">
+          <div></div>
+        </div>
+      </div>
+      
+      <div class="flex-row row-bottom">
+        <div class="flex-column" style="align-items: flex-end;">
+          <div id="date"></div>
+        </div>
+        <div class="flex-column">
+          <div id="weather"></div>
+        </div>
+      </div>
+
+
+	</div>
+
+
+
+	<div class="iframe-container">
+		<iframe id="calendar-view" src="https://cloud.timeedit.net/liu/web/schema/ri1fZXY795ZZ37Qv9Y0X24m0ycY565Q6p4ZQ446Q6Y76Z6Q2Qlc2olQQZZZQcQ1ulqxfbZ0cQocbcQoQyfobfon0QZqZmQnlZ5ZoQZmu80ZQ6uQ0o359ZZq0QqLZZ2QlZ65lWla5bQbqml0qWk9Qa%C3%A4ncjd6WZWcbm0ycX0Zw5ccdyS9f5QpnmbQa.html#" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+	</div>
+	<!-- Content goes in this flexible container
+    <div class="flex-container" id="backend-view">
+
+				<div class="iframe-container">
+					<iframe src="https://cloud.timeedit.net/liu/web/schema/ri1fZXY795ZZ37Qv9Y0X24m0ycY565Q6p4ZQ446Q6Y76Z6Q2Qlc2olQQZZZQcQ1ulqxfbZ0cQocbcQoQyfobfon0QZqZmQnlZ5ZoQZmu80ZQ6uQ0o359ZZq0QqLZZ2QlZ65lWla5bQbqml0qWk9Qa%C3%A4ncjdnWXdc7m0yyX08j5WaayS965ppnyVaarwW7dW4c6F.html" width="100%" height="100%" frameborder="0"></iframe>
+				</div>
+				<!--
+		<div class="flex-row">
+			<div class="flex-column">
+				<div>&hearts;</div>
+			</div>
+			<div class="flex-column" style="flex-basis: 500px;">
+				<div>Made with <3 by Jakob Hansson</div>
+			</div>
+			<div class="flex-column">
+				<div>&hearts;</div>
+			</div>
+		</div>
+
+		<div class="flex-row">
+			<div class="flex-column subcolumns">
+					<div id="architecture" class="text-small"></div>
+					<div id="cputemp" class="text-small"></div>
+					<div id="ram" class="text-small"></div>
+					<div id="uptime" class="text-small"></div>
+				</div>
+			<div class="flex-column subcolumns allow-shrink">
+				<div></div>
+			</div>
+			<div class="flex-column subcolumns">
+				<div id="wan" class="text-small"></div>
+				<div id="lan" class="text-small"></div>
+				<div id="disks"></div>
+			</div>
+		</div>
+
+		<div class="flex-row row-bottom">
+			<div class="flex-column">
+				<div>&hearts;</div>
+			</div>
+			<div class="flex-column">
+				<div class="text-small"></div>
+			</div>
+			<div class="flex-column">
+				<div>&hearts;</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+  </body>
+</html>

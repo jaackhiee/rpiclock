@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Start Electron Clock Kiosk
+Exec=/home/pi/start_clock_kiosk.sh
+Terminal=false
+Type=Application
