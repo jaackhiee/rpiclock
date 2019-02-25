@@ -1,4 +1,4 @@
-# RPiClock
+# RPiClock, developed in 2019
 Kiosk mode clock/assistant providing date, time, weather and schedule on a Raspberry Pi. Supposed to be running with a 7" touch screen.
 
 
