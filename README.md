@@ -10,4 +10,4 @@ Kiosk mode clock/assistant providing date, time, weather and schedule on a Raspb
 ## configuration
 The *start_clock_kiosk.desktop* shall exist in */etc/xdg/autostart/* on the Raspberry Pi. And the *start_clock_kiosk.sh* shall be placed in *~/*.
 
-![Sample of departures](https://raw.githubusercontent.com/jaackhiee/rpiclock/master/rpiclock-sample.jpg)
+![Sample of departures](https://raw.githubusercontent.com/jakobhansson/rpiclock/master/rpiclock-sample.jpg)
