@@ -8,8 +8,12 @@ function createWindow () {
                             height: 480,
                             center: true,
                             // Inverse these for production
-                            frame: false,
-                            kiosk: true, })
+                            frame: true,
+                            kiosk: false,
+                            webPreferences: {
+                              nodeIntegration: true
+                            }
+                          })
 
   // and load the index.html of the app.
   win.loadFile('index.html')

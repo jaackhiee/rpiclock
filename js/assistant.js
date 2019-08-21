@@ -121,23 +121,32 @@ $(document).ready(function() {
 
     function getWeather() {
         var request = require("request");
+        var fs = require("fs");
+        var key;
 
-        request.get("http://api.openweathermap.org/data/2.5/weather?id=2694762&units=metric&APPID=1285b839710439fe5838914a994168bf", (error, response, body) => {
+        // Load client secrets from a local file.
+        fs.readFile('weather_key.txt', 'utf-8',(err, content) => {
+            if (err) return console.log('Error loading weather_api.json file:', err);
+            key = content;
+        });
+
+
+
+        let weatherUrl = "http://api.openweathermap.org/data/2.5/weather?id=2694762&units=metric&APPID=" + key;
+
+        request.get(weatherUrl, (error, response, body) => {
             if(error) {
                 return console.dir(error);
             }
 
 			let data = JSON.parse(body);
-			//console.log(data);
+			console.log(data);
             let description = data.weather[0].main;
             let temperature = data.main.temp;
 			let humidity = data.main.humidity;
 			let wind = data.wind.speed;
 
-			//$('#weather').html('<div style="display:  flex; align-items:  center;">' + Math.round(temperature) + ' &deg;C' + ", " + description.toLowerCase() + "<i class='owf owf-" + data.weather[0]['id'] + "'></i></div>");
-			//$('#weather').html('<div style="display:  flex; align-items:  center;">' + "<i class='owf owf-" + data.weather[0]['id'] + "'></i>" + Math.round(temperature) + ' &deg;C' + "</div>");
-            //$('#weather').html('<div style="display:  flex; align-items:  center;">' + Math.round(temperature) + ' &deg;C' + "</div>");
-            $('#weather').html('');
+			$('#weather').html('');
 			$('#weather').append('<div style="display:  flex; align-items:  center;">' + humidity + ' %</div>');
             $('#weather').append('<div style="display:  flex; align-items:  center;">' + wind + ' m/s</div>');
             $('#weather').append('<div style="display:  flex; align-items:  center;">' + description + ", " + Math.round(temperature) + ' &deg;C</div>');
@@ -146,140 +155,28 @@ $(document).ready(function() {
     }
 
 
-    function randomQuote() {
-
-        let quotes = [
-            "Hello handsome...",
-            "Hello there beautiful...",
-            "You look awesome today!",
-            "One day at a time.",
-            "You are enough just as you are.",
-            "You get what you give.",
-            "Nothing is impossible. The word itself says \"I'm possible!\"",
-            "Don't wait. The time will never be just right.",
-            "Happiness is not by chance, but by choice.",
-            "Some people look for a beautiful place. Others make a place beautiful.",
-            "Life is like riding a bicycle. To keep your balance, you must keep moving.",
-            "You don't always need a plan. Sometimes you just need to breathe, trust, let go, and see what happens.",
-            "When you reach the end of your rope, tie a knot in it and hang on.",
-            "Learning never exhausts the mind.",
-            "Life without love is like a tree without blossoms or fruit.",
-            "It is far better to be alone, than to be in bad company.",
-            "If you cannot do great things, do small things in a great way.",
-            "You can't blame gravity for falling in love.",
-            "Honesty is the first chapter in the book of wisdom."
-        ]
-
-        let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-        $('#random-quote').html(randomQuote);
-    }
-
-
-    var bgnum = 0;
-
-    function randomBackground() {
-
-        let backgrounds = [
-            "images/_DSC8153.jpg",
-            "images/DSC_6738.jpg",
-            "images/DSC_4016-noreg.jpg",
-            "images/DSC_3988-1-blurred.jpg"
-        ]
-
-        let backgroundUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-
-        bgnum = bgnum + 1;
-
-        if (bgnum == backgrounds.length) {
-            bgnum = 0;
-        }
-
-        $('#bg').css('background-image', 'url(' + backgrounds[bgnum] + ')');
-
-    }
-
-
-   
 
 
     // INITIAL LOAD
     getTime();
     getDate();
-    serverIp();
-    getExternalIp();
-    serverUptime();
     getWeather();
-    randomQuote();
-    getRam();
-    getCpuTemperature();
-	getDrives();
-    getPlatform();
-    
+
 
     const SECONDS = 1000;
     const MINUTES = 60 * SECONDS;
-    const HOURS = MINUTES * 60;
-    const DAY = 24 * HOURS;
-
-
-
 
     setInterval(function() {
         getTime();
-        getDate();
-        serverUptime();
-        getRam();
     }, SECONDS);
 
     setInterval(function() {
-        getCpuTemperature();
-        getDrives();
+        getDate();
     }, MINUTES);
 
 	setInterval(function() {
         getWeather();
 	}, MINUTES * 30);
-
-    setInterval(function() {
-        //getWeather();
-    }, HOURS);
-
-    setInterval(function() {
-        //randomBackground();
-        randomQuote();
-	}, DAY)
-
-
-
-    // Handle switching between views / containers
-
-    // Initial hide the iframe/schedule
-    $('#calendar-view').hide();
-
-    let STANDARDVIEW = true;
-    
-	$('body').on('click', function() {
-		if (STANDARDVIEW) {
-            $('#calendar-view').show();
-            //const { remote } = require('electron')
-            //emote.getCurrentWindow().loadURL('https://calendar.google.com/calendar/r/month')
-            
-            $('#standard-view').hide();
-			STANDARDVIEW = false;
-		} else {
-            $('#backend-view').hide();
-            
-            $('#standard-view').show();
-			STANDARDVIEW = true;
-		}
-    });
-    
-    $('iframe').on('click', function() {
-        $('#calendar-view').hide();
-            
-        $('#standard-view').show();
-    });
 
 
 });
