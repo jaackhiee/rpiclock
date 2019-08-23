@@ -8,8 +8,8 @@ function createWindow () {
                             height: 480,
                             center: true,
                             // Inverse these for production
-                            frame: true,
-                            kiosk: false,
+                            frame: false,
+                            kiosk: true,
                             webPreferences: {
                               nodeIntegration: true
                             }

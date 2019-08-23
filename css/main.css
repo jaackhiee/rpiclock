@@ -56,7 +56,10 @@ html, body {
 }
 
 body {
-  color: white;
+  /*color: white;*/
+  color: #07090d;
+
+
   /*font-weight: 700;*/
   font-size: 1.2rem;
   /*font-family: "Lato-Light", sans-serif;*/
@@ -72,16 +75,18 @@ body {
   width: 100%;
   height: 100%;
 
-  /*background-image: url('../images/DSC_4016-noreg.jpg');
+  /*background-color: #07090d;*/
+  background-color: white;
+
+  /*
+  background-image: url('../images/DSC_6738.jpg');
   background-position: center;
   background-size: cover;
   */
+  
 
-  background-color: #07090d;
-
-  filter: blur(25px);
-  /* Blur makes the edges go ut, this keep the window filled */
   transform: scale(1.3);
+  filter: blur(5px);
 }
 
 
@@ -159,6 +164,12 @@ iframe {
 -------------------*/
 #time {
   font-size: 10.0rem;
+  font-weight: bolder;
+  /*text-shadow: 1px 1px 8px #000000;*/
+}
+
+#date {
+  /*text-shadow: 1px 1px 8px #000000;*/
 }
 
 #weather {
@@ -166,6 +177,7 @@ iframe {
   /*align-items: center;*/
   flex-direction: column;
   align-items: flex-end;
+  /*text-shadow: 1px 1px 8px #000000;*/
 }
 
 #random-quote {
